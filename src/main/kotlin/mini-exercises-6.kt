@@ -8,4 +8,8 @@ fun main() {
     } else {
         println("Not a teenager")
     }
+    // #2 Create a constant called 'answer' and use a single line if-else expression to set it equal
+    // to the result you print out for the same cases in the above exercise. Then print out 'answer'.
+    val answer: String = if (myAge >= 13 && myAge <= 19) "Teenager" else "Not a teenager"
+    println(answer)
 }
