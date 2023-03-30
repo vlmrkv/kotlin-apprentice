@@ -1,3 +1,5 @@
+import java.util.Random
+
 fun main() {
     // 1. Which of the following 1-10 are valid statements?
     val array1 = Array<Int>() // not valid - required values for parameter 'size' and 'init'
@@ -15,10 +17,14 @@ fun main() {
     array5 += 6 // not valid - val can't be reassigned
     for item in array5 { println(item) } // not valid - a 'for' loop must contain parentheses
 
-    val list: List<Int> = mutableListOf(1, 2, 3, 4, 2)
+    val list: List<Int> = listOf(1, 2, 3, 4, 2)
     val item = 2
     println(removeOne(item, list).joinToString())
+    println(remove(item, list).joinToString())
 
+    val array = arrayOf(1, 2, 3, 4, 5)
+    println(array.joinToString())
+    println(reverse(array).joinToString())
 }
 
 // 2. Write a function that removes the first occurrence of a given integer from a list of
@@ -33,29 +39,34 @@ fun removeOne(item: Int, list: List<Int>): List<Int> {
 
 // 3. Write a function that removes all occurrences of a given integer from a list of integers.
 // This is the signature of the function:
-//fun remove(item: Int, list: List<Int>): List<Int> {
-//    var result = listOf<Int>()
-//    for (i in 0 .. list.lastIndex) {
-//        if (list[i] == item) {
-//            result = list.minus(list[i])
-//        }
-//    }
-//    return result
-//}
+fun remove(item: Int, list: List<Int>): List<Int> {
+    var result = list.toMutableList()
+    for (i in 0 .. list.lastIndex) {
+        if (list[i] == item) {
+            result.remove(list[i])
+        }
+    }
+    return result.toList()
+}
 
 // 4. Arrays and lists have a 'reverse()' method that reverses all the elements in-place,
 // that is, within the original array or list. Write a function that does a similar thing,
 // without using 'reverse()', and returns a new array with the elements of the original array
 // in reverse order. This is the signature of the function:
 fun reverse(array: Array<Int>): Array<Int> {
-    return array
+    var result = arrayOf<Int>()
+    for (i in (array.size - 1) downTo 0) {
+        val el = array[i]
+        result += el
+    }
+    return result
 }
 
 // 5. The function below returns a random number between 'from' (inclusive) and the 'to' (exclusive):
-val random = 2
-//fun rand(from: Int, to: Int): Int {
-//    return random.nextInt(to - from) + from
-//}
+val random = Random()
+fun rand(from: Int, to: Int): Int {
+    return random.nextInt(to - from) + from
+}
 // Use it to write a function that shuffles the elements of an array in random order. This is the
 // signature of the function:
 //fun randomized(array: Array<Int>): Array<Int> {
