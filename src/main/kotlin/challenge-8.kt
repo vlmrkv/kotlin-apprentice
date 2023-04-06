@@ -121,6 +121,23 @@ fun main() {
         "Programmer" to "Code"
     )
     println(mergeMaps(mapTest1, mapTest2))
+
+    val test = "Apocalypto"
+    println(occurrencesOfCharacters(test))
+
+    nameTitleLookup["Patrick"] = null
+    println(nameTitleLookup)
+    nameTitleLookup.remove("Ray")
+    println(nameTitleLookup)
+
+    val testMap = mapOf(
+        "one" to 1,
+        "two" to 2,
+        "three" to 3,
+        "four" to 7,
+        "five" to 2
+    )
+    println(isInvertible(testMap))
 }
 
 // 2. Given a map with two-letter state codes as keys, and the full state names as values, write
@@ -150,19 +167,27 @@ fun mergeMaps(
 // 4. Declare a function 'occurrencesOfCharacters' that calculates which characters occur
 // in a string, as well as how often each of these characters occur. Return the result as a map.
 // This is the function signature:
-//fun occurrencesOfCharacters(text: String): Map<Char, Int> {
-//
-//}
+fun occurrencesOfCharacters(text: String): Map<Char, Int> {
+    val map: MutableMap<Char, Int> = mutableMapOf()
+    for (ch in text) {
+        val counter = map.getOrDefault(ch, defaultValue = 0)
+        println(counter)
+        map[ch] = counter + 1
+    }
+    return map
+}
 
 // 5. Write a function that returns 'true' if all of the values of a map are unique. Use a set
 // to test uniqueness. This is the function signature:
-//fun isInvertible(map: Map<String, Int>): Boolean {
-//
-//}
+fun isInvertible(map: Map<String, Int>): Boolean {
+    val setSize = map.values.toSet().size
+    val mapSize = map.values.size
+    return setSize == mapSize
+}
 
 // 6. Given the map. Set the value of the key "Patrick" to 'null' and completely remove the key
 // and value for "Ray".
-val nameTitleLookup: Map<String, String?> = mutableMapOf(
+val nameTitleLookup: MutableMap<String, String?> = mutableMapOf(
     "Mary" to "Engineer",
     "Patrick" to "Intern",
     "Ray" to "Hacker"
