@@ -76,6 +76,11 @@ fun main() {
 
     jane.recordGrade(history)
     jane.recordGrade(math)
+
+    //jane = Student(firstName = "John", lastName = "Wick") // jane is a 'val'
+    var jane2 = Student(firstName = "Jane", lastName = "Soldier")
+    jane2 = Student(firstName = "John", lastName = "Wick")
+    println(jane.gradePointAverage)
 }
 
 // Creating classes
@@ -114,8 +119,16 @@ class Student(
     val firstName: String,
     val lastName: String,
     val grades: MutableList<Grade> = mutableListOf(),
-    var credits: Double = 0.0
+    var credits: Double = 0.0,
 ) {
+    val gradePointAverage: Double
+        get() {
+            var totalPts = 0.0
+            grades.forEach {
+                totalPts += it.points
+            }
+            return totalPts / credits
+        }
     fun recordGrade(grade: Grade) {
         grades.add(grade)
         credits += grade.credits
