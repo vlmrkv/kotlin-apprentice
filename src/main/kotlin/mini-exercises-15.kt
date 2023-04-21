@@ -81,6 +81,48 @@ fun main() {
     var jane2 = Student(firstName = "Jane", lastName = "Soldier")
     jane2 = Student(firstName = "John", lastName = "Wick")
     println(jane.gradePointAverage)
+
+    println(jane.credits) // 7.0
+    // The teacher made a mistake; math has 5 credits
+    math = Grade(letter = "A", points = 20.0, credits = 5.0)
+    jane.recordGrade(math)
+
+    println(jane.credits) // 12.0, not 8.0!!! It was recorded twice because class instances are mutable.
+
+    // Data classes
+    val albert = Student2(
+        firstName = "Albert",
+        lastName = "Einstein",
+        id = 1
+    )
+    val richard = Student2(
+        firstName = "Richard",
+        lastName = "Feynman",
+        id = 2
+    )
+    val albertCopy = albert.copy()
+
+    println(albert)
+    println(richard)
+    println(albert == richard) // false
+    println(albert == albertCopy) // true
+    println(albert === albertCopy) // false
+
+    val marie = StudentData("Marie", "Curie", id = 1)
+    val emmy = StudentData("Emmy", "Noether", id = 2)
+    val marieCopy = marie.copy()
+
+    println(marie)
+    println(emmy)
+    println(marie == emmy) // false
+    println(marie == marieCopy) // true
+    println(marie === marieCopy) // false
+
+    // Destructuring declarations
+    val (firstName, lastName, id) = marie
+    println(firstName)
+    println(lastName)
+    println(id)
 }
 
 // Creating classes
@@ -134,3 +176,61 @@ class Student(
         credits += grade.credits
     }
 }
+
+// Data classes
+class Student2(
+    var firstName: String,
+    var lastName: String,
+    var id: Int
+) {
+    override fun hashCode(): Int {
+        val prime = 31
+        var result = 1
+
+        result = prime * result + firstName.hashCode()
+        result = prime * result + id
+        result = prime * result + lastName.hashCode()
+
+        return result
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other)
+            return true
+
+        if (other == null)
+            return false
+
+        if (javaClass != other.javaClass)
+            return false
+
+        val obj = other as Student2?
+
+        if (firstName != obj?.firstName)
+            return false
+
+        if (id != obj.id)
+            return false
+
+        if (lastName != obj.lastName)
+            return false
+
+        return true
+    }
+
+    override fun toString(): String {
+        return "Student (firstName=$firstName, lastName=$lastName, id=$id)"
+    }
+
+    fun copy(
+        firstName: String = this.firstName,
+        lastName: String = this.lastName,
+        id: Int = this.id
+    ) = Student2(firstName, lastName, id)
+}
+
+data class StudentData(
+    var firstName: String,
+    var lastName: String,
+    var id: Int
+)
