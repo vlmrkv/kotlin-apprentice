@@ -147,7 +147,7 @@ fun main() {
     Downloader().downloadData("foo.com/bar",
         progress = { downloadState ->
             when (downloadState) {
-                null -> println("No download state yet.")
+                null -> println("No download state yet.") // Replacing an redundant state "Idle" and other unknown state
                 DownloadState.Starting -> println("Starting download...")
                 DownloadState.InProgress -> println("Downloading data...")
                 DownloadState.Error -> println("An error occurred. Download terminated.")

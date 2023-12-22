@@ -36,7 +36,9 @@ class Downloader {
         }
     }
 
-    private fun postProgress(progress: (state: DownloadState?) -> Unit) {
+    private fun postProgress(
+        progress: (state: DownloadState?) -> Unit
+    ) {
         progress(downloadState)
 
         when (downloadState) {
