@@ -133,7 +133,7 @@ fun afterClassActivity(student: BandMember): String {
 }
 
 // Inheritance, methods and overrides
-class StudentAthlete(
+open class StudentAthlete(
     firstName: String,
     lastName: String
 ): Student(firstName, lastName) {

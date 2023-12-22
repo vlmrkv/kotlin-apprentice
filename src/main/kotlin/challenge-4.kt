@@ -23,13 +23,13 @@ fun main() {
 //    val (x, y, z) = Triple(3, 2, 5) // Nothing special
 //    val (x, y, z) = Triple(0, 2, 4) // On the y/z plane
 
-    when {
-        x == y && y == z -> println("x = y = z")
-        z == 0 -> println("On the x/y plane")
-        y == 0 -> println("On the x/z plane")
-        x == 0 -> println("On the y/z plane")
-        else -> println("Nothing special")
-    }
+//    when {
+//        x == y && y == z -> println("x = y = z")
+//        z == 0 -> println("On the x/y plane")
+//        y == 0 -> println("On the x/z plane")
+//        x == 0 -> println("On the y/z plane")
+//        else -> println("Nothing special")
+//    }
 
     // 4. A closed range can never be empty. Why?
     val range = 5 until 5

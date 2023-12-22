@@ -60,6 +60,7 @@ fun main() {
 
     val removedPlayer = players.removeAt(2)
     println("$removedPlayer was removed")
+    println(players.joinToString())
 
     // Use indexOf() to determine the position of the element "Dan" in 'players'.
     println(players.indexOf("Dan")) // 2
@@ -79,12 +80,12 @@ fun main() {
     println(arrayOfInts.joinToString())
 
     val scores = listOf(2, 2, 8, 6, 1)
-    for (player in players) {
-        println(player)
+    for (plaYer in players) {
+        println(plaYer)
     }
 
-    for ((index, player) in players.withIndex()) {
-        println("${index + 1}. $player")
+    for ((index, plAyer) in players.withIndex()) {
+        println("${index + 1}. $plAyer")
     }
 
     fun sumOfElements(list: List<Int>): Int {
@@ -98,8 +99,8 @@ fun main() {
 
     // Write a 'for' loop that prints the players' names and scores
     fun topPlayers(list1: List<String>, list2: List<Int>) {
-        for ((index, player) in list1.withIndex()) {
-            println("${index + 1}. $player - ${list2[index]}")
+        for ((index, playEr) in list1.withIndex()) {
+            println("${index + 1}. $playEr - ${list2[index]}")
         }
     }
     println(topPlayers(players, scores))

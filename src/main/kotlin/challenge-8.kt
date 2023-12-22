@@ -1,52 +1,52 @@
 fun main() {
-    // Creating Sets
-    val names = setOf("Anna", "Brian", "Craig", "Anna")
-    println(names)
-
-    val hashSet = HashSet<Int>()
-    println(hashSet.isEmpty()) // true
-
-    // Set from arrays
-    val someArray = arrayOf(1, 2, 3, 1)
-    println(someArray.joinToString()) // 1, 2, 3, 1
-    var someSet = mutableSetOf(*someArray)
-    println(someSet) // [1, 2, 3]
-
-    // Accessing elements
-    println(someSet.contains(1)) // true
-    println(4 in someSet) // false
-
-    for (number in someSet) {
-        println(number)
-    }
-
-    // Adding and removing elements
-    someSet.add(5)
-
-    val removedOne = someSet.remove(1)
-    println(removedOne) // true
-    println(someSet) // [2, 3, 5]
-
-    // 1. Which of the following are valid statements?
-    val map1: Map<Int to Int> = emptyMap() // not valid
-    val map2 = emptyMap() // not valid
-    val map3: Map<Int, Int> = emptyMap() // valid
-
-    // For the next four statements, use the following map:
-    val map4 = mapOf("One" to 1, "Two" to 2, "Three" to 3)
-    map4[1] // not valid. Key has a String type
-    map4["One"] // valid
-    map4["Zero"] = 0 // not valid. no set method providing array access
-    map4[0] = "Zero" // not valid. no set method providing array access
-
-    // For the next three statements, use the following map:
-    val map5 = mutableMapOf(
-        "NY" to "New York",
-        "CA" to "California"
-    )
-    map5["NY"] // valid
-    map5["WA"] = "Washington" // valid
-    map5["CA"] = null // not valid. variables of this map has non-nullable type
+//    // Creating Sets
+//    val names = setOf("Anna", "Brian", "Craig", "Anna")
+//    println(names)
+//
+//    val hashSet = HashSet<Int>()
+//    println(hashSet.isEmpty()) // true
+//
+//    // Set from arrays
+//    val someArray = arrayOf(1, 2, 3, 1)
+//    println(someArray.joinToString()) // 1, 2, 3, 1
+//    var someSet = mutableSetOf(*someArray)
+//    println(someSet) // [1, 2, 3]
+//
+//    // Accessing elements
+//    println(someSet.contains(1)) // true
+//    println(4 in someSet) // false
+//
+//    for (number in someSet) {
+//        println(number)
+//    }
+//
+//    // Adding and removing elements
+//    someSet.add(5)
+//
+//    val removedOne = someSet.remove(1)
+//    println(removedOne) // true
+//    println(someSet) // [2, 3, 5]
+//
+//    // 1. Which of the following are valid statements?
+//    val map1: Map<Int to Int> = emptyMap() // not valid
+//    val map2 = emptyMap() // not valid
+//    val map3: Map<Int, Int> = emptyMap() // valid
+//
+//    // For the next four statements, use the following map:
+//    val map4 = mapOf("One" to 1, "Two" to 2, "Three" to 3)
+//    map4[1] // not valid. Key has a String type
+//    map4["One"] // valid
+//    map4["Zero"] = 0 // not valid. no set method providing array access
+//    map4[0] = "Zero" // not valid. no set method providing array access
+//
+//    // For the next three statements, use the following map:
+//    val map5 = mutableMapOf(
+//        "NY" to "New York",
+//        "CA" to "California"
+//    )
+//    map5["NY"] // valid
+//    map5["WA"] = "Washington" // valid
+//    map5["CA"] = null // not valid. variables of this map has non-nullable type
 
     val codesOfStates = mapOf(
         "AL" to "Alabama",

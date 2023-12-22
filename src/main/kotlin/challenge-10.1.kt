@@ -1,20 +1,20 @@
 fun main() {
-    val jane = User()
-    val john = User()
-    val horrorList = MovieList("Horror")
-
-    jane.addList(horrorList)
-    john.addList(horrorList)
-
-    // Add films to jane's list
-    jane.movieLists["Horror"]?.movieTitles?.add("Insomnia")
-    jane.movieLists["Horror"]?.movieTitles?.add("Exorcist")
-    // Add films to john's list
-    john.movieLists["Horror"]?.movieTitles?.add("Silent Hill")
-
-    // Print lists
-    jane.movieLists["Horror"]?.print()
-    john.movieLists["Horror"]?.print()
+//    val jane = User()
+//    val john = User()
+//    val horrorList = MovieList("Horror")
+//
+//    jane.addList(horrorList)
+//    john.addList(horrorList)
+//
+//    // Add films to jane's list
+//    jane.movieLists["Horror"]?.movieTitles?.add("Insomnia")
+//    jane.movieLists["Horror"]?.movieTitles?.add("Exorcist")
+//    // Add films to john's list
+//    john.movieLists["Horror"]?.movieTitles?.add("Silent Hill")
+//
+//    // Print lists
+//    jane.movieLists["Horror"]?.print()
+//    john.movieLists["Horror"]?.print()
 }
 
 // Imagine you're writing a movie-viewing application in Kotlin. Users can create lists of movies
@@ -33,17 +33,17 @@ fun main() {
 * modify the same list and call 'print' from both users. Are all the changes reflected?
 */
 
-class User(
-    val movieLists: MutableMap<String, MovieList> = mutableMapOf()
-) {
-    fun addList(movieList: MovieList) {
-        movieLists[movieList.name] = movieList
-    }
-
-    fun list(name: String): MovieList? {
-        return movieLists[name]
-    }
-}
+//class User(
+//    val movieLists: MutableMap<String, MovieList> = mutableMapOf()
+//) {
+//    fun addList(movieList: MovieList) {
+//        movieLists[movieList.name] = movieList
+//    }
+//
+//    fun list(name: String): MovieList? {
+//        return movieLists[name]
+//    }
+//}
 
 class MovieList(
     val name: String,
